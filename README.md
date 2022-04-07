@@ -11,3 +11,6 @@ node server
 
 # How to connect
 Visit https://sleuth-connect.glitch.me to connect to a Sleuth server. (Make sure to add port 3000 if it is a port-forwarded public IP address)
+
+# Note
+Sleuth may not work with .exe or other encrypted files, but a fix will be made to fix this issue.
