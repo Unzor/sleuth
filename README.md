@@ -5,6 +5,7 @@ A project that lets you upload files to a computer using only IP addresses/websi
 ```
 git clone https://github.com/Unzor/sleuth
 cd sleuth
+npm i
 node server
 ```
 
