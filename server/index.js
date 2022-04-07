@@ -2,7 +2,7 @@ const fs = require("fs");
 const express = require('express');
 const app = express();
  
-app.use(express.json({limit: "100mb"}));
+app.use(express.json({limit: "250mb"}));
 app.use(require("express-all-allow")())
  
 if (!fs.existsSync("sleuthfs/")) {
