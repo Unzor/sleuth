@@ -1,5 +1,5 @@
 # sleuth
-A project that lets you upload files to a computer using only IP addresses.
+A project that lets you upload files to a computer using only IP addresses/websites.
 
 # How to set up server
 ```
@@ -9,4 +9,4 @@ node server
 ```
 
 # How to connect
-Visit https://sleuth-connect.glitch.me to connect to a Sleuth server.
+Visit https://sleuth-connect.glitch.me to connect to a Sleuth server. (Make sure to add port 3000 if it is a port-forwarded public IP address)
