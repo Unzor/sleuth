@@ -1,3 +1,10 @@
+function dataurl_to_file(dataurl) {
+var regex = /^data:.+\/(.+);base64,(.*)$/;
+var matches = dataurl.match(regex);
+var data = matches[2];
+return Buffer.from(data, 'base64');
+}
+
 const fs = require("fs");
 const express = require('express');
 const app = express();
@@ -10,8 +17,14 @@ if (!fs.existsSync("sleuthfs/")) {
 }
  
 app.post('/sleuthfs/send', (req, res) => {
-  var file = decodeURIComponent(escape(atob(req.body.file)));
-  fs.writeFileSync("sleuthfs/" + file.split("|")[0], Buffer.from(Uint8Array.from(eval("[" + file.split("|")[1] + "]")).buffer));
+	var file = req.body.file;
+	if (!fs.existsSync("sleuthfs/")) {
+  fs.mkdirSync("sleuthfs");
+  }
+
+var data = dataurl_to_file(file.split("|")[1])
+
+  fs.writeFileSync("sleuthfs/" + file.split("|")[0], data);
   res.send({success: true});
 });
  
