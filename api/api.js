@@ -16,12 +16,11 @@ class Sleuth {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    file: btoa(unescape(encodeURIComponent(settings.filename + "|" + new TextEncoder("utf-8").encode(GetFile.result).toString())))
+                    file: settings.filename + "|" + GetFile.result
                 })
             })
         }
-        GetFile.readAsText(settings.file);
-
+        GetFile.readAsDataURL(settings.file);
     }
 }
 
