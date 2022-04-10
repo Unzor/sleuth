@@ -1,5 +1,8 @@
-# sleuth
-A project that lets you upload files to a computer using only IP addresses/websites.
+<p align="center">
+<img src="sleuth_logo.png" width="700" />
+  <br>
+  A project that lets you upload files to a computer using only IP addresses/websites.
+  </p>
 
 # How to set up server
 ```
