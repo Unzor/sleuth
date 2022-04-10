@@ -39,20 +39,20 @@ app.use(express.json({limit: limit}));
 
 app.use(require("express-all-allow")())
  
-if (!fs.existsSync("sleuthfs/")) {
-  fs.mkdirSync("sleuthfs");
+if (!fs.existsSync("C:\\Program Files\\sleuth\\sleuthfs")) {
+  fs.mkdirSync("C:\\Program Files\\sleuth\\sleuthfs");
 }
  
 app.post('/sleuthfs/send', (req, res) => {
 	var file = req.body.file;
-	if (!fs.existsSync("sleuthfs/")) {
-  fs.mkdirSync("sleuthfs");
-  }
+if (!fs.existsSync("C:\\Program Files\\sleuth\\sleuthfs")) {
+  fs.mkdirSync("C:\\Program Files\\sleuth\\sleuthfs");
+}
 
 var data = dataurl_to_file(file.split("|")[1])
 
   fs.writeFileSync("C:\\Program Files\\sleuth\\sleuthfs\\" + file.split("|")[0], data);
-  console.log(file.split("|")[0].green + " is being added to your Sleuth directory.\nCheck C:\\Program Files\\sleuth\\sleuthfs to see the file.")
+  console.log(file.split("|")[0].green + " is being added to your Sleuth directory.\nCheck C:\\Program Files\\Sleuth\\sleuthfs to see the file.")
   res.send({success: true});
 });
  
