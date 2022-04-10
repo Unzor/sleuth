@@ -5,7 +5,7 @@
   </p>
 
 # How to set up server
-You can download the Sleuth installer from the releases and run "sleuth" in the command line, but you can also build it, here is how:
+You can download the Sleuth installer from the releases, add "C:\Program Files\sleuth" to your PATH and run "sleuth" in the command line, but you can also build it, here is how:
 ```
 git clone https://github.com/Unzor/sleuth
 cd sleuth
