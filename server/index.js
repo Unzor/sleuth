@@ -44,15 +44,21 @@ if (!fs.existsSync("C:\\Program Files\\sleuth\\sleuthfs")) {
 }
  
 app.post('/sleuthfs/send', (req, res) => {
-	var file = req.body.file;
+		var file = req.body.file;
+	  console.log(file.split("|")[0].green + " is being added to your Sleuth directory, wait a few moments for the file to be uploaded..")
 if (!fs.existsSync("C:\\Program Files\\sleuth\\sleuthfs")) {
   fs.mkdirSync("C:\\Program Files\\sleuth\\sleuthfs");
 }
 
 var data = dataurl_to_file(file.split("|")[1])
+   fs.writeFile("C:\\Program Files\\sleuth\\sleuthfs\\" + file.split("|")[0], data, (err) => {
+	   if (err) {
+		   console.log("ERROR!".red + " The file " + file.split("|")[0].yellow + " could not be written to your Sleuth directory.")
+	   } else {
+		  console.log(file.split("|")[0].green + " was added to your Sleuth directory. Check " + "C:\\Program Files\\Sleuth\\sleuthfs".underline.blue  + " to see the file.")
+	   }
+   });
 
-  fs.writeFileSync("C:\\Program Files\\sleuth\\sleuthfs\\" + file.split("|")[0], data);
-  console.log(file.split("|")[0].green + " is being added to your Sleuth directory.\nCheck C:\\Program Files\\Sleuth\\sleuthfs to see the file.")
   res.send({success: true});
 });
  
@@ -79,5 +85,7 @@ app.listen(port, () => {
   ${`Tip: you can change the port by adding -p or --port along with a port number 
   to the command, and you can change the limit of the maximum file size that 
   people can upload to by adding -l or --limit to the command, along with 
-  a file size, such as 1mb.`.grey}`);
+  a file size, such as 1mb.`.grey}
+  
+  ------------------------------------------------------------------------------------------------------`);
 });
